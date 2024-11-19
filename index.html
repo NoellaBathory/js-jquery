@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Voorbeeld</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      .image-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+      img {
+        width: 300px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <h1>jQuery Toepassing: In-/Uitklappen van Afbeelding</h1>
+      <button id="toggle-button" class="btn btn-primary">
+        Toon Afbeelding
+      </button>
+
+      <div class="image-container">
+        <img id="afbeelding" src="afbeelding.jpg" alt="Vrouw met tijgermond" />
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#toggle-button").click(function () {
+          $("#afbeelding").slideToggle(500, function () {
+            if ($("#afbeelding").is(":visible")) {
+              $("#toggle-button").text("Verberg Afbeelding");
+            } else {
+              $("#toggle-button").text("Toon Afbeelding");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
